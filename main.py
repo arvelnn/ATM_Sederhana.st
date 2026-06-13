@@ -1,0 +1,41 @@
+"""Aplikasi ATM berbasis Streamlit dengan layout portrait & navigasi halaman."""
+import streamlit as st
+
+from atm import ATM
+from helpers import load_css
+from halaman import login, menu, cek_saldo, tarik, setor, transfer, riwayat
+
+st.set_page_config(page_title="ATM RaaZ", page_icon="🏧", layout="centered")
+
+load_css("style.css")
+
+
+# ---------------- INISIALISASI ----------------
+@st.cache_resource
+def get_atm():
+    return ATM()
+
+
+atm = get_atm()
+
+if "akun_login" not in st.session_state:
+    st.session_state.akun_login = None
+if "page" not in st.session_state:
+    st.session_state.page = "menu"
+if "saldo_visible" not in st.session_state:
+    st.session_state.saldo_visible = True  # default: saldo terlihat
+
+
+# ---------------- ROUTER ----------------
+if st.session_state.akun_login is None:
+    login.render(atm)
+else:
+    router = {
+        "menu": menu.render,
+        "cek_saldo": cek_saldo.render,
+        "tarik": tarik.render,
+        "setor": setor.render,
+        "transfer": transfer.render,
+        "riwayat": riwayat.render,
+    }
+    router.get(st.session_state.page, menu.render)(atm)
