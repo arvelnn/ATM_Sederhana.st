@@ -47,5 +47,5 @@ def render(atm):
         "⬅️ Kembali ke Menu",
         use_container_width=True
     ):
-        st.session_state.page = "menu"
+        st.session_state.page = "selesai"
         st.rerun()
