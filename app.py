@@ -1,6 +1,7 @@
 import streamlit as st
 from login import login
 from data import akun
+from cek_saldo import tampilkan_saldo
 
 if "login" not in st.session_state:
     st.session_state.login = False
@@ -25,4 +26,10 @@ if st.button("Login"):
         st.error("Nomor rekening atau PIN salah. Silakan coba lagi.")
 
 if st.session_state.login:
-    st.write("Anda sudah login!")
+
+    tampilkan_saldo(st.session_state.user)
+
+    if st.button("Logout"):
+        st.session_state.login = False
+        st.session_state.user = None
+        st.rerun()
