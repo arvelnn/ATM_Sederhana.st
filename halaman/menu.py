@@ -1,4 +1,3 @@
-"""Halaman dashboard menu (termasuk tombol logout)."""
 import streamlit as st
 from helpers import kartu_saldo, goto
 
