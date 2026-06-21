@@ -4,7 +4,7 @@ def render(atm):
     akun = st.session_state.akun_login
 
     st.markdown("💸 Transfer Antar Rekening")
-    st.info(f"💳 Saldo kamu: Rp {akun['saldo']}")
+    st.info(f"💳 Saldo kamu: Rp {akun.saldo:,}")
     st.divider()
 
     with st.form("form_transfer"):
@@ -18,7 +18,7 @@ def render(atm):
             st.warning("⚠️ Rekening tujuan tidak boleh kosong.")
         elif nominal <= 0:
             st.warning("⚠️ Nominal harus lebih dari Rp 0.")
-        elif nominal > akun["saldo"]:
+        elif nominal > akun.saldo:
             st.error("❌ Saldo tidak mencukupi.")
         else:
             ok, pesan = atm.transfer(akun, tujuan, nominal)
