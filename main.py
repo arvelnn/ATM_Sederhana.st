@@ -5,7 +5,7 @@ from atm import ATM
 from helpers import load_css
 from halaman import login, menu, cek_saldo, tarik, setor, transfer, riwayat
 
-st.set_page_config(page_title="ATM RaaZ", page_icon="🏧", layout="centered")
+st.set_page_config(page_title="ATM BCI", page_icon="🏧", layout="centered")
 
 load_css("style.css")
 

@@ -3,8 +3,8 @@ import streamlit as st
 def render(atm):
     akun = st.session_state.akun_login
 
-    st.markdown("### 💸 Transfer Antar Rekening")
-    st.info(f"💳 Saldo kamu: **Rp {akun['saldo']:,.0f}**")
+    st.markdown("💸 Transfer Antar Rekening")
+    st.info(f"💳 Saldo kamu: Rp {akun['saldo']}")
     st.divider()
 
     with st.form("form_transfer"):
