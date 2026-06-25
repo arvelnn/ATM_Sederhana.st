@@ -21,7 +21,12 @@ class ATM:
                 pin=data["pin"],
                 saldo=data["saldo"]
     )
-
+            
+    def cek_rekening(self, no_rekening):
+        if no_rekening in self.akun:
+            return True, self.akun[no_rekening]
+        return False, "Rekening tidak ditemukan"
+    
     def login(self, no_rekening, pin):
         if (
             no_rekening in self.akun

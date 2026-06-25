@@ -2,7 +2,7 @@ import streamlit as st
 
 from atm import ATM
 from helpers import load_css
-from halaman import login, menu, cek_saldo, tarik, setor, transfer, riwayat, transaksi_berhasil
+from halaman import login, menu, cek_saldo, tarik, setor, riwayat, transaksi_berhasil, transfer
 
 st.set_page_config(page_title="ATM BCI", page_icon="🏧", layout="centered")
 
